@@ -1,0 +1,21 @@
+# Metadata files
+Thumbs.db
+.DS_Store
+
+# Frontend
+.sass-cache
+/bootstrap/compiled.php
+public/assets/**/min/*
+public/assets/images/originals/*
+node_modules
+bower_components
+
+# Composer
+/vendor
+
+# Misc.
+error_log
+robots.txt
+.idea/
+# CMS assets
+/media

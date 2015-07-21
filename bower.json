@@ -1,0 +1,22 @@
+{
+  "name": "ember_app",
+  "version": "0.0.0",
+  "authors": [
+    "ViktorSoroka <montanaqw5809@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "1",
+    "ember": "1.4.0",
+    "handlebars": "~3.0.3",
+    "ember-data": "~1.13.5",
+    "bootstrap": "3.3.5"
+  }
+}

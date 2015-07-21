@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ember app</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<script type="text/x-handlebars" data-template-name="application">
+    <div class="container">
+        <h1>Reading List</h1>
+        {{outlet}}
+    </div>
+</script>
+<script type="text/x-handlebars" data-template-name="index">
+    <ol class="breadcrumb">
+        <li class="active">Books</li>
+    </ol>
+    <ul class="list-unstyled">
+        {{render 'books' this}}
+    </ul>
+</script>
+<script type="text/x-handlebars" data-template-name="book">
+    <ol class="breadcrumb">
+        <li>{{#link-to 'index'}}Books{{/link-to}}</li>
+        <li class="active">{{title}}</li>
+    </ol>
+    {{book-details book=this tagName='div' class='row'}}
+</script>
+<script type="text/x-handlebars" data-template-name="components/book-details">
+    <div class="col-sm-3">
+        <a href="{{book.url}}" target="_blank">
+            <img src="{{book.image}}" alt="{{book.title}}"/>
+        </a>
+
+        <p class="text-center rating">
+            <strong>
+                {{book.rating}}
+            </strong>/5
+        </p>
+    </div>
+    <div class="col-sm-9">
+        <h3>{{#link-to 'book' book}}{{book.title}}{{/link-to}}</h3>
+
+        <p class="text-muted"><em>Written by {{book.author}}</em></p>
+
+        <div>
+            <p>{{book.review}}</p>
+        </div>
+    </div>
+</script>
+<script type="text/x-handlebars" data-template-name="books">
+    {{#each this as |book|}}
+        {{book-details book=book tagName='li' class='row'}}
+    {{/each}}
+</script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/handlebars/handlebars.min.js"></script>
+<script src="bower_components/ember/ember-template-compiler.js"></script>
+<script src="bower_components/ember/ember.min.js"></script>
+<script src="bower_components/ember-data/ember-data.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
